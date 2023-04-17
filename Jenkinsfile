@@ -7,37 +7,18 @@ pipeline {
    }
 
    stages {
-      stage('Build') {
+      stage('compile') {
          steps {
-            // Get some code from a GitHub repository 
-            git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-            bat "mvn -Dmaven.test.failure.ignore=true clean compile"
+            sh "mvn clean compile"
          }
          }
       stage("Test") {
           steps {
-            git 'https://github.com/jglick/simple-maven-project-with-tests.git'  
-            bat "mvn -Dmaven.test.failure.ignore=true clean test"
+            sh "mvn clean test"
             
           }
 
       }
-      stage("Deploy") {
-          steps {
-            git 'https://github.com/jglick/simple-maven-project-with-tests.git'  
-            bat "mvn -Dmaven.test.failure.ignore=true clean install"
-            
-          }
-          post {
-              success {
-                  archiveArtifacts 'target/*.jar'
-              }
-
-          }
-
-
-      }
-
-      }
+      
    }
-
+}
