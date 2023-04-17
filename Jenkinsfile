@@ -25,7 +25,12 @@ pipeline {
            
         }
         }
-         
+      post {
+         success {
+            echo"Archiving the code..."
+            archiveArtifacts artifacts: '**/*.jar'
+         }
+      }
      }
 }
       
