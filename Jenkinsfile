@@ -25,12 +25,15 @@ pipeline {
            
         }
         }
-      post(
+      post{
          success {
             archiveArtifacts 'target/*.jar'
         }
-        }
-         }
+        
+      }
+         
+     }
+}
       
   
 
