@@ -25,11 +25,13 @@ pipeline {
            
         }
         }
+   }
       post {
-         success {
+         always {
             echo"Archiving the code..."
-            archiveArtifacts artifacts: '**/*.jar'
-         }
+            archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+            archiveArtifacts artifacts: 'target/surefire-reports/*.txt'
+         
       }
      }
 }
