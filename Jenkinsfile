@@ -34,6 +34,11 @@ pipeline {
          
       }
      }
+   post {
+      success {
+         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      }
+   }
 }
       
   
