@@ -31,14 +31,10 @@ pipeline {
             echo"Archiving the code..."
             archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             archiveArtifacts artifacts: 'target/surefire-reports/*.txt'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
          
       }
      }
-   post {
-      success {
-         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports', reportFiles: 'surefire-report.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-      }
-   }
 }
       
   
