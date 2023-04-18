@@ -31,7 +31,7 @@ pipeline {
             echo"Archiving the code..."
             archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             archiveArtifacts artifacts: 'target/surefire-reports/*.txt'
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports/com.github.jitpack.AppTest.txt', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
       }
      }
 }
