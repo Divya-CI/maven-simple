@@ -31,9 +31,10 @@ pipeline {
       
       stage("email notification"){
          steps {
-            emailext attachLog: true, body: 'Test mails', recipientProviders: [buildUser()], subject: 'Mail trigger', to: 'testjenkins49@gmail.com'
+            emailext (attachLog: true, body: 'Test mails', recipientProviders: [buildUser()], subject: 'Mail trigger', to: 'testjenkins49@gmail.com')
          }
       
+   }
    }
       post {
          always {
@@ -44,8 +45,7 @@ pipeline {
       }
      }
 }
-}
-      
+
  
 
 
