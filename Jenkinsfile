@@ -28,6 +28,9 @@ pipeline {
            
         }
         }
+      stage ("email notification") {
+      emailext attachLog: true, body: 'Test mails', recipientProviders: [buildUser()], subject: 'Mail trigger', to: 'testjenkins49@gmail.com'
+      }
    }
       post {
          always {
