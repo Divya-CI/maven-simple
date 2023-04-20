@@ -31,7 +31,7 @@ pipeline {
       
       stage("email notification"){
          steps {
-            emailext (attachLog: true, body: 'Test mails', recipientProviders: [buildUser()], subject: 'Mail trigger', to: 'testjenkins49@gmail.com')
+            emailext (attachLog: true, body: 'This is a sample mail', subject: 'This is extended email test', to: 'testjenkins49@gmail.com')
          }
       
    }
