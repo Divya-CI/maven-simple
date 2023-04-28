@@ -15,6 +15,7 @@ pipeline {
          withCredentials([gitUsernamePassword(credentialsId: 'Divya_git', gitToolName: 'Default')]) {
           bat echo "secret test"
 }
+}
       stage('compile') {
          steps {
             bat "mvn clean compile"
