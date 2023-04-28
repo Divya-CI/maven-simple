@@ -10,6 +10,13 @@ pipeline {
    }
    
     stages {
+    
+      stage("secret credentials") {
+         steps {
+            withCredentials([gitUsernamePassword(credentialsId: 'Divya_git', gitToolName: 'Default')])
+            }
+            }
+            
       stage('compile') {
          steps {
             bat "mvn clean compile"
